@@ -1,0 +1,91 @@
+/* Thème sombre professionnel pour JavaFX */
+
+.root {
+    -fx-background-color: #181c24;
+    -fx-font-family: 'Segoe UI', 'Arial', sans-serif;
+}
+
+.label {
+    -fx-text-fill: #ffffff;
+}
+
+.text-field, .combo-box, .date-picker, .slider {
+    -fx-background-color: #232733;
+    -fx-text-fill: #f5f6fa;
+    -fx-border-color: #2c3440;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+}
+
+.button {
+    -fx-background-color: linear-gradient(to right, #1e90ff, #00b894);
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+    -fx-padding: 10 20;
+    -fx-effect: dropshadow(three-pass-box, rgba(30,144,255,0.2), 8, 0, 0, 2);
+    -fx-cursor: hand;
+    -fx-font-size: 14px;
+    -fx-border-width: 0;
+}
+.button:hover {
+    -fx-background-color: linear-gradient(to right, #00b894, #1e90ff);
+    -fx-effect: dropshadow(three-pass-box, rgba(0,184,148,0.3), 12, 0, 0, 4);
+}
+
+.table-view {
+    -fx-background-color: #232733;
+    -fx-table-cell-border-color: #232733;
+    -fx-control-inner-background: #232733;
+    -fx-background-radius: 10;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.25), 10, 0, 0, 0);
+}
+.table-view .column-header-background {
+    -fx-background-color: #181c24;
+}
+.table-view .table-row-cell {
+    -fx-background-color: #232733;
+}
+.table-view .table-row-cell:filled:selected, .table-view .table-row-cell:filled:hover {
+    -fx-background-color: #1e90ff44;
+}
+
+.scroll-pane, .scroll-pane .viewport {
+    -fx-background: #181c24;
+}
+
+.vbox, .hbox, .border-pane {
+    -fx-background-color: transparent;
+}
+
+/* Cartes */
+.card {
+    -fx-background-color: #232733;
+    -fx-background-radius: 12;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.18), 12, 0, 0, 0);
+    -fx-padding: 18;
+}
+
+/* Titres */
+.title-label {
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #00e6d0;
+    -fx-padding: 0 0 10 0;
+}
+
+.subtitle-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e90ff;
+    -fx-padding: 0 0 8 0;
+}
+
+.image-view {
+    -fx-effect: dropshadow(three-pass-box, rgba(30,144,255,0.15), 8, 0, 0, 2);
+    -fx-background-radius: 8;
+}
+
+.table-view, .table-view .table-row-cell, .table-view .column-header-background {
+    -fx-text-fill: #f5f6fa;
+} 

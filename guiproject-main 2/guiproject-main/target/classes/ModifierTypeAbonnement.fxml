@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="esprit.tn.guiproject.gui.ModifierTypeAbonnementController"
+            prefHeight="600.0" prefWidth="800.0">
+    
+    <top>
+        <VBox spacing="10" style="-fx-background-color: #f0f0f0;">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+            
+            <Text text="Modification de l'Abonnement" style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+            
+            <!-- Message d'avertissement -->
+            <VBox style="-fx-background-color: #fff3cd; -fx-border-color: #ffeeba; -fx-border-width: 1; -fx-padding: 10; -fx-background-radius: 5; -fx-border-radius: 5;">
+                <Text text="⚠️ Attention" style="-fx-font-weight: bold; -fx-font-size: 16px; -fx-fill: #856404;"/>
+                <Text text="Soyez prudent lors de la modification ou de l'annulation d'un abonnement." style="-fx-fill: #856404;"/>
+                <Text text="L'abonnement précédent sera considéré comme échoué et son paiement sera annulé." style="-fx-fill: #856404;"/>
+            </VBox>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox spacing="15" style="-fx-padding: 20;">
+            <!-- Informations de l'utilisateur -->
+            <VBox spacing="10" styleClass="card">
+                <Label text="Informations de l'Utilisateur" style="-fx-font-weight: bold;"/>
+                <HBox spacing="10">
+                    <Label text="Utilisateur:"/>
+                    <Label fx:id="userLabel" style="-fx-font-weight: bold;"/>
+                </HBox>
+                <HBox spacing="10">
+                    <Label text="Email:"/>
+                    <Label fx:id="emailLabel" style="-fx-font-weight: bold;"/>
+                </HBox>
+            </VBox>
+
+            <!-- Modification de l'abonnement -->
+            <VBox spacing="10" styleClass="card">
+                <Label text="Nouvel Abonnement" style="-fx-font-weight: bold;"/>
+                <ComboBox fx:id="typeAbonnementComboBox" promptText="Sélectionner le type d'abonnement" maxWidth="Infinity"/>
+                <DatePicker fx:id="dateInscriptionPicker" promptText="Date d'inscription" maxWidth="Infinity"/>
+            </VBox>
+
+            <!-- Boutons d'action -->
+            <HBox spacing="10" alignment="CENTER_RIGHT">
+                <Button text="Annuler l'Abonnement" onAction="#annulerAbonnement" style="-fx-background-color: #dc3545; -fx-text-fill: white;"/>
+                <Button text="Modifier" onAction="#modifierAbonnement" style="-fx-background-color: #28a745; -fx-text-fill: white;"/>
+                <Button text="Retour" onAction="#retourSelection" style="-fx-background-color: #6c757d; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </center>
+    
+</BorderPane> 

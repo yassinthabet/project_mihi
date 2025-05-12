@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+
+<BorderPane styleClass="root" stylesheets="@dark-theme.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="esprit.tn.guiproject.gui.Reservation_abonement_controlor">
+    <center>
+        <ScrollPane fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED">
+            <VBox alignment="CENTER" spacing="15" style="-fx-padding: 20;">
+                <Label styleClass="title-label" text="Réservation Abonnement" />
+
+                <!-- Section Informations -->
+                <VBox maxWidth="Infinity" spacing="10" styleClass="card">
+                    <Label styleClass="subtitle-label" text="Informations de Réservation" />
+                    <HBox alignment="CENTER" maxWidth="Infinity" spacing="10">
+                        <ComboBox fx:id="userIdComboBox" promptText="Sélectionner Utilisateur" HBox.hgrow="ALWAYS" />
+                        <ComboBox fx:id="abonnementIdComboBox" promptText="Sélectionner Abonnement" HBox.hgrow="ALWAYS" />
+                        <DatePicker fx:id="datePicker" promptText="Date de réservation" HBox.hgrow="ALWAYS" />
+                    </HBox>
+                </VBox>
+
+                <!-- Section Photo -->
+                <VBox maxWidth="Infinity" spacing="10" styleClass="card">
+                    <Label styleClass="subtitle-label" text="Gestion des Photos" />
+                    <VBox alignment="CENTER" maxWidth="Infinity" spacing="10.0">
+                        <StackPane maxWidth="Infinity" style="-fx-background-color: #232733; -fx-border-color: #1e90ff; -fx-border-width: 2; -fx-border-radius: 8;">
+                            <Rectangle arcHeight="5" arcWidth="5" height="250" style="-fx-fill: transparent;" width="350" />
+                            <ImageView fx:id="imageView" fitHeight="250" fitWidth="350.0" preserveRatio="true" styleClass="image-view" />
+                        </StackPane>
+                        <Label style="-fx-font-size: 12px; -fx-text-fill: #b2bec3;" text="Cliquez et faites glisser pour déplacer l'image" />
+                        <HBox alignment="CENTER" maxWidth="Infinity" spacing="10.0">
+                            <Button onAction="#importerImage" text="Importer Image" HBox.hgrow="ALWAYS" />
+                            <Button fx:id="resetButton" text="Réinitialiser" HBox.hgrow="ALWAYS" />
+                        </HBox>
+                        <VBox maxWidth="Infinity" spacing="8" style="-fx-padding: 10;">
+                            <HBox alignment="CENTER_LEFT" maxWidth="Infinity" spacing="10">
+                                <Label style="-fx-min-width: 60; -fx-font-size: 12px;" text="Zoom" />
+                                <Slider fx:id="zoomSlider" max="3.0" min="0.1" showTickLabels="true" showTickMarks="true" value="1.0" HBox.hgrow="ALWAYS" />
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" maxWidth="Infinity" spacing="10">
+                                <Label style="-fx-min-width: 60; -fx-font-size: 12px;" text="Rotation" />
+                                <Slider fx:id="rotationSlider" max="360" min="0" showTickLabels="true" showTickMarks="true" value="0" HBox.hgrow="ALWAYS" />
+                            </HBox>
+                        </VBox>
+                        <TextField fx:id="imagePathField" editable="false" maxWidth="Infinity" promptText="Chemin de l'image" style="-fx-font-size: 12px;" />
+                    </VBox>
+                </VBox>
+
+                <!-- Boutons CRUD -->
+                <HBox alignment="CENTER" maxWidth="Infinity" spacing="10">
+                    <Button onAction="#ajouterReservation" text="Ajouter" HBox.hgrow="ALWAYS" />
+                    <Button onAction="#modifierReservation" text="Modifier" HBox.hgrow="ALWAYS" />
+                    <Button onAction="#supprimerReservation" text="Supprimer" HBox.hgrow="ALWAYS" />
+                    <Button onAction="#rafraichirTable" text="Rafraîchir" HBox.hgrow="ALWAYS" />
+                </HBox>
+
+                <!-- Table des réservations -->
+                <TableView fx:id="tableView" maxWidth="Infinity" styleClass="card" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn fx:id="colId" prefWidth="50" style="-fx-alignment: CENTER;" text="ID" />
+                        <TableColumn fx:id="colUserId" prefWidth="150" style="-fx-alignment: CENTER;" text="Utilisateur" />
+                        <TableColumn fx:id="colAbonnementId" prefWidth="150" style="-fx-alignment: CENTER;" text="Abonnement" />
+                        <TableColumn fx:id="colDate" prefWidth="150" style="-fx-alignment: CENTER;" text="Date Réservation" />
+                        <TableColumn fx:id="colImagePath" prefWidth="300" style="-fx-alignment: CENTER;" text="Photo" />
+                        <TableColumn fx:id="colEtat" prefWidth="100" style="-fx-alignment: CENTER;" text="État" />
+                    </columns>
+                </TableView>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
