@@ -44,3 +44,7 @@ buildNumber.properties
 
 # Configuration files with sensitive information
 **/config.properties
+**/application.properties
+**/application.yml
+**/application-*.properties
+**/application-*.yml
