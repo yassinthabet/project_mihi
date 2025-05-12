@@ -1,0 +1,8 @@
+# API Keys Configuration
+# This file is a template for the config.properties file
+# Do NOT add actual API keys to this template file - this should be safe to commit to GitHub
+
+# Stripe API Keys - Replace with your actual keys in your local config.properties file (DO NOT COMMIT THE ACTUAL KEYS)
+# Or better yet, set these as environment variables named STRIPE_SECRET_KEY and STRIPE_PUBLIC_KEY
+stripe.secret.key=YOUR_STRIPE_SECRET_KEY_HERE
+stripe.public.key=YOUR_STRIPE_PUBLIC_KEY_HERE
