@@ -7,6 +7,7 @@ import esprit.tn.guiproject.connection.DatabaseConnection;
 import esprit.tn.guiproject.connection.service.ReservationAbonnement;
 import esprit.tn.guiproject.services.ReservationAbonnementService;
 import esprit.tn.guiproject.utils.EmailUtil;
+import esprit.tn.guiproject.utils.ConfigUtil;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -34,7 +35,6 @@ public class PaiementAbonnementController {
     private String dateReservation;
     private String imagePath;
     private final ReservationAbonnementService service = new ReservationAbonnementService();
-    private static final String STRIPE_SECRET_KEY = "sk_test_51RMG3yR4wmLjLi1gN7XLjUxM1G81ZlvEP95ijroDZylZ8Id7RxfShW1tncIE9I3PxZvShNyQgI2gBVBpvN007cod00xSWeVq5C";
 
     public void setReservationData(String user, String abonnement, String date, String imagePath) {
         this.selectedUser = user;
@@ -95,7 +95,7 @@ public class PaiementAbonnementController {
             }
 
             // Configuration de Stripe
-            Stripe.apiKey = STRIPE_SECRET_KEY;
+            Stripe.apiKey = ConfigUtil.getStripeSecretKey();
 
             // Extraction du prix de l'abonnement
             double prix = Double.parseDouble(selectedAbonnement.split("\\(")[1].split("€")[0].trim());
@@ -185,4 +185,4 @@ public class PaiementAbonnementController {
         alert.setContentText(message);
         alert.showAndWait();
     }
-} 
+}

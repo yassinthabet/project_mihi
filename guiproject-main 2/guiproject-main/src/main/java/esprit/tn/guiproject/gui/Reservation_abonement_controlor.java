@@ -8,6 +8,7 @@ import esprit.tn.guiproject.connection.service.ReservationAbonnement;
 import esprit.tn.guiproject.connection.service.ServiceAbonement;
 import esprit.tn.guiproject.entities.Abonement;
 import esprit.tn.guiproject.services.ReservationAbonnementService;
+import esprit.tn.guiproject.utils.ConfigUtil;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -65,8 +66,6 @@ public class Reservation_abonement_controlor {
     private final ReservationAbonnementService service = new ReservationAbonnementService();
     private final ServiceAbonement abonnementService = new ServiceAbonement();
     private ObservableList<ReservationAbonnement> reservationList;
-    private static final String STRIPE_SECRET_KEY = "sk_test_51RMG3yR4wmLjLi1gN7XLjUxM1G81ZlvEP95ijroDZylZ8Id7RxfShW1tncIE9I3PxZvShNyQgI2gBVBpvN007cod00xSWeVq5C";
-    private static final String STRIPE_PUBLIC_KEY = "pk_test_51RMG3yR4wmLjLi1glIOliKmR7Bkg9HLcYeMeE3TKtpGHHsjfzuSjLZqLR7PM73XxwpGNLsYBbEtmy8KcqH0NihF400oeTT7HCD";
     private Scale scale;
     private Rotate rotate;
     private Translate translate;
@@ -76,7 +75,7 @@ public class Reservation_abonement_controlor {
     private void initialize() {
         try {
             // Configuration de Stripe
-            Stripe.apiKey = STRIPE_SECRET_KEY;
+            Stripe.apiKey = ConfigUtil.getStripeSecretKey();
             
             System.out.println("Initialisation du contrôleur...");
             
